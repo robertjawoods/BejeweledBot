@@ -100,12 +100,13 @@ namespace BejeweledBot
         /// </summary>
         private void CreateColourGrid()
         {
-            for (int y = 0; y < 8; y++)
+	    using (Graphics g = Graphics.FromImage(_colourGrid))
             {
-                for (int x = 0; x < 8; x++)
+                for (int y = 0; y < 8; y++)
                 {
-                    using (Graphics g = Graphics.FromImage(_colourGrid))
+                    for (int x = 0; x < 8; x++)
                     {
+                    
                         g.FillRectangle(new SolidBrush(_gemColours[x, y]), (float)x * 55, (float)y * 44, 55, 44);
                     }
                 }
