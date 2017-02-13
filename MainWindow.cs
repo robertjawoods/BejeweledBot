@@ -27,12 +27,6 @@ namespace BejeweledBot
         private void calibrateBtn_Click(object sender, EventArgs e)
         {
             bwm.Calibrate();
-            
-            //searchThread.Start();
-
-            //Thread.Sleep(1);
-
-            //searchThread.Abort();
 
             colourGridPicture.Image = bwm.ColourGrid;
 
@@ -43,11 +37,6 @@ namespace BejeweledBot
             bwm.BejewledBoard = ScreenCapture.GetScreen(bwm.BoardLocation);
             AI.CalculateMove(bwm);
             bwm.PopulateBoard();
-
-            long memory = GC.GetTotalMemory(false);
-
-            if (memory / 1000 > 2000)
-                GC.Collect();
 
             colourGridPicture.Image = bwm.ColourGrid;
         }
